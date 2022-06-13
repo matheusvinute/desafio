@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>CEP | Developer</title>
+</head>
+
+<body>
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h5 class="text-white h4">Páginas do site</h5>
+                <div class="nav-links">
+                    <a href="consultar-cep.html">Consulte seu CEP</a>
+                    <a href="palindromo.html">Números palíndromos</a>
+                    <a href="troco.html">Calcule o troco da sua compra</a>
+                    <a href="veiculo.html">Cadastre o seu veículo</a>
+                    <a href="moto.html">Cadastre a sua moto</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                <strong>Inicio</strong>
+            </a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="content-text" style="margin-bottom: 0;">
+                    <h5 class="bealtiful-text">Consulte o cep da sua região</h5>
+                    <p class="bealtiful-text"> Informe abaixo o CEP da sua região ou algum outro de sua escolha.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12">
+            <div class="form-container" style="margin-top: 0">
+                <form name="cep_form" id="cep-form">
+                    <div class="row">
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="card bg-dark" id="cardCepUm" style="">
+                                <div class="card-header bealtiful-text">
+                                    CEP
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="inputCepUm" placeholder="__.___-___"
+                                            onchange="//consultCep()" name="cep_um"
+                                            onKeyPress="MascaraCep(cep_form.cep_um);"
+                                            onPaste="MascaraCep(cep_form.cep_um);" maxlength="10" required>
+                                    </div>
+                                    <div class="content-text" id="errorCepUm" hidden>
+                                        <p style="color: red">O cep informado não existe</p>
+                                    </div>
+                                </div>
+                                <ul class="list-group list-group-flush" id="resultsCepUm" hidden>
+                                    <li class="list-group-item bealtiful-text">Estado: <span id="estado"></span></li>
+                                    <li class="list-group-item bealtiful-text">Cidade: <span id="cidade"></span></li>
+                                    <li class="list-group-item bealtiful-text">Bairro: <span id="bairro"></span></li>
+                                    <li class="list-group-item bealtiful-text">Endereço: <span id="endereco"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="card bg-dark" id="cardCepDois" style="">
+                                <div class="card-header bealtiful-text">
+                                    CEP
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="inputCepDois"
+                                            placeholder="__.___-___" onchange="//consultCep()" name="cep_dois"
+                                            onKeyPress="MascaraCep(cep_form.cep_dois);"
+                                            onPaste="MascaraCep(cep_form.cep_dois);" maxlength="10" required>
+                                    </div>
+                                    <div class="content-text" id="errorCepDois" hidden>
+                                        <p style="color: red">O cep informado não existe</p>
+                                    </div>
+                                </div>
+                                <ul class="list-group list-group-flush" id="resultsCepDois" hidden>
+                                    <li class="list-group-item bealtiful-text">Estado: <span id="estado"></span></li>
+                                    <li class="list-group-item bealtiful-text">Cidade: <span id="cidade"></span></li>
+                                    <li class="list-group-item bealtiful-text">Bairro: <span id="bairro"></span></li>
+                                    <li class="list-group-item bealtiful-text">Endereço: <span id="endereco"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="card bg-dark" id="cardCepTres" style="">
+                                <div class="card-header bealtiful-text">
+                                    CEP
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="inputCepTres"
+                                            placeholder="__.___-___" onchange="//consultCep()" name="cep_tres"
+                                            onKeyPress="MascaraCep(cep_form.cep_tres);"
+                                            onPaste="MascaraCep(cep_form.cep_tres);" maxlength="10" required>
+                                    </div>
+                                    <div class="content-text" id="errorCepTres" hidden>
+                                        <p style="color: red">O cep informado não existe</p>
+                                    </div>
+                                </div>
+                                <ul class="list-group list-group-flush" id="resultsCepTres" hidden>
+                                    <li class="list-group-item bealtiful-text">Estado: <span id="estado"></span></li>
+                                    <li class="list-group-item bealtiful-text">Cidade: <span id="cidade"></span></li>
+                                    <li class="list-group-item bealtiful-text">Bairro: <span id="bairro"></span></li>
+                                    <li class="list-group-item bealtiful-text">Endereço: <span id="endereco"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="card bg-dark" id="cardCepQuatro" style="">
+                                <div class="card-header bealtiful-text">
+                                    CEP
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="inputCepQuatro"
+                                            placeholder="__.___-___" onchange="//consultCep()" name="cep_quatro"
+                                            onKeyPress="MascaraCep(cep_form.cep_quatro);"
+                                            onPaste="MascaraCep(cep_form.cep_quatro);" maxlength="10" required>
+                                    </div>
+                                    <div class="content-text" id="errorCepQuatro" hidden>
+                                        <p style="color: red">O cep informado não existe</p>
+                                    </div>
+                                </div>
+                                <ul class="list-group list-group-flush" id="resultsCepQuatro" hidden>
+                                    <li class="list-group-item bealtiful-text">Estado: <span id="estado"></span></li>
+                                    <li class="list-group-item bealtiful-text">Cidade: <span id="cidade"></span></li>
+                                    <li class="list-group-item bealtiful-text">Bairro: <span id="bairro"></span></li>
+                                    <li class="list-group-item bealtiful-text">Endereço: <span id="endereco"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="card bg-dark" id="cardCepCinco" style="">
+                                <div class="card-header bealtiful-text">
+                                    CEP
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="inputCepCinco"
+                                            placeholder="__.___-___" onchange="//consultCep()" name="cep_cinco"
+                                            onKeyPress="MascaraCep(cep_form.cep_cinco);"
+                                            onPaste="MascaraCep(cep_form.cep_cinco);" maxlength="10" required>
+                                    </div>
+                                    <div class="content-text" id="errorCepCinco" hidden>
+                                        <p style="color: red">O cep informado não existe</p>
+                                    </div>
+                                </div>
+                                <ul class="list-group list-group-flush" id="resultsCepCinco" hidden>
+                                    <li class="list-group-item bealtiful-text">Estado: <span id="estado"></span></li>
+                                    <li class="list-group-item bealtiful-text">Cidade: <span id="cidade"></span></li>
+                                    <li class="list-group-item bealtiful-text">Bairro: <span id="bairro"></span></li>
+                                    <li class="list-group-item bealtiful-text">Endereço: <span id="endereco"></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="btn btn-primary" type="submit" id="busca-cep" style="width: 100%;">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script src="https://kit.fontawesome.com/15d4c201a9.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="../js/cep.js"></script>
+    <script src="../js/mascaras.js"></script>
+</body>
+
+</html>

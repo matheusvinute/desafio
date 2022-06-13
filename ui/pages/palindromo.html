@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Palindromo | Developer</title>
+</head>
+
+<body>
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <h5 class="text-white h4">Páginas do site</h5>
+                <div class="nav-links">
+                    <a href="consultar-cep.html">Consulte seu CEP</a>
+                    <a href="palindromo.html">Números palíndromos</a>
+                    <a href="troco.html">Calcule o troco da sua compra</a>
+                    <a href="veiculo.html">Cadastre o seu veículo</a>
+                    <a href="moto.html">Cadastre a sua moto</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                <strong>Inicio</strong>
+            </a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="content-text">
+                    <h5 class="bealtiful-text">Números palíndromos</h5>
+                    <p class="text-muted">Os números palíndromos são aqueles que quando lidos normalmente, ou seja,
+                        do inicio ao final, apresentam a mesma notação de quando são lidos do final para o início.</p>
+                    <p class="text-muted">
+                        <span class="bealtiful-text">Exemplo:</span> o número 292 é palíndromo, pois quando lido de trás
+                        para
+                        frente também lê-se 292. Números com apenas um digito não são considerados palíndromos.
+                    </p>
+                    <p class="bealtiful-text">Digite ao lado o primeiro e último número para obter os números
+                        palíndromos dentro do intervalo informado.</p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-container">
+                    <form>
+                        <div class="form-group">
+                            <label class="bealtiful-text">Primeiro número</label>
+                            <input type="text" class="form-control" id="inputFirstNumber" maxlength="3">
+                        </div>
+                        <div class="form-group">
+                            <label class="bealtiful-text">Último número</label>
+                            <input type="text" class="form-control" id="inputLastNumber" maxlength="3">
+                        </div>
+                    </form>
+                    <button class="btn btn-primary" id="button-generate">Gerar números</button>
+                </div>
+            </div>
+        </div>
+        <div class="content-text" style="margin-top: 0;">
+            <h4 class="bealtiful-text">Os números gerados aparecerão aqui:</h4>
+            <p id="show-palindromes" class="text-muted"></p>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/15d4c201a9.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="../js/palindrome.js"></script>
+</body>
+
+</html>
